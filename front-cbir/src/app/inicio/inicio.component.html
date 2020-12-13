@@ -1,0 +1,15 @@
+<div class="m-5 d-flex justify-content-center">
+    <div class="card">
+        <div class="card-body">
+            <section>
+                <input type="file" accept="images/*" (change)="selectArchivo($event)">
+            </section>
+            <section *ngIf="imgUrl">
+                <angular-cropper [imageUrl]="imgUrl"></angular-cropper>
+            </section>
+            <section *ngIf="croppedresult">
+                <img [src]="croppedresult" alt="...">
+            </section>
+        </div>
+    </div>
+</div>
