@@ -15,5 +15,4 @@ export class CbirService {
     {headers: {'Content-Type': 'application/json',}}
     ).toPromise()
   }
-
 }
