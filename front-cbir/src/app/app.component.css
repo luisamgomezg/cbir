@@ -1,8 +1,13 @@
 .page-header{
-    background-color: blueviolet;
+    background-color: royalblue;
     text-align: center;
 }
-
+.card{
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 70%;
+    text-align: center;
+}
 p{
     text-justify: auto;
     text-align: center;

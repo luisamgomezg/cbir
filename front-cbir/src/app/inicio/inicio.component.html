@@ -1,21 +1,23 @@
-<div class="m-5 d-flex justify-content-center">
-    <div class="card">
-        <div class="card-body">
-            <section>
-                <input type="file" accept="images/*" (change)="selectArchivo($event)">
-            </section>
-            <section class="imgCropper" *ngIf="imgUrl">
-                <angular-cropper [imageUrl]="imgUrl" #angularCropper></angular-cropper>
-                <div class="mt-2">
-                    <button class="btn btn-primary recortar" (click)="obtenerImg()">Recortar</button>
-                </div>
-            </section>
-            <section *ngIf="imgResul">
-                <img [src]="imgResul" alt="...">
-            </section>
-            <div class="mt-2" *ngIf="imgResul">
-                <button class="btn btn-primary" (click)="ejecutarCbir()">Ejecutar</button>
+<section>
+    <input type="file" accept="images/*" (change)="selectArchivo($event)">
+</section>
+<section *ngIf="imgResul">
+    <button type="button" class="btn btn-primary detectar" (click)="abrirmodal()">Detectar</button>
+</section>
+<div class="row mt-2">
+    <div class="col-4">
+        <section class="imgCropper" *ngIf="imgUrl">
+            <h4>Recortar imagen</h4>
+            <angular-cropper [imageUrl]="imgUrl" #angularCropper></angular-cropper>
+            <div class="mt-2">
+                <button class="btn btn-primary" (click)="obtenerImg()">Recortar</button>
             </div>
-        </div>
+        </section>
+    </div>
+    <div class="col-4">
+        <section *ngIf="imgResul">
+            <h4>Imagen recortada</h4>
+            <img class="imgCropper" [src]="imgResul" alt="...">
+        </section> 
     </div>
 </div>

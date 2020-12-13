@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {CropperComponent} from 'angular-cropperjs';
+import { respuesta } from '../modelos/respuesta';
 import { CbirService } from '../services/cbir.service';
 
 @Component({
@@ -11,6 +12,7 @@ export class InicioComponent implements OnInit {
   @ViewChild('angularCropper') angularCropper: CropperComponent;
   imgUrl: string;
   imgResul: string;
+  respuesta : respuesta;
 
   constructor(private cbirService:CbirService) { }
 
@@ -39,10 +41,12 @@ export class InicioComponent implements OnInit {
   }
 
   async ejecutarCbir(){
-    const a = await this.cbirService.postImage(this.imgResul);
+    this.respuesta = await this.cbirService.postImage(this.imgResul).finally();
+    console.log("resp"+this.respuesta.val);
+  } 
+
+  abrirmodal(): void {
+   this.ejecutarCbir();
   }
-
-
-  
 
 }

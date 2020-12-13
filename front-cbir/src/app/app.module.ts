@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
+import { NgModule  } from '@angular/core';
 import { AppComponent } from './app.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { AngularCropperjsModule} from 'angular-cropperjs';
@@ -15,13 +14,13 @@ import { HttpClientModule } from '@angular/common/http';
   
   declarations: [
     AppComponent,
-    InicioComponent
+    InicioComponent,
   ],
   imports: [
     BrowserModule,
     //RouterModule.forRoot(routes),
     HttpClientModule,
-    AngularCropperjsModule
+    AngularCropperjsModule,
   ],
   
   providers: [],
