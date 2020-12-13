@@ -1,7 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { variable } from '@angular/compiler/src/output/output_ast';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import {CropperComponent} from 'angular-cropperjs';
 import { respuesta } from '../modelos/respuesta';
 import { CbirService } from '../services/cbir.service';
+import { MensajeService } from '../services/mensajes.service';
 
 @Component({
   selector: 'app-inicio',
@@ -14,7 +16,7 @@ export class InicioComponent implements OnInit {
   imgResul: string;
   respuesta : respuesta;
 
-  constructor(private cbirService:CbirService) { }
+  constructor(private cbirService:CbirService, private menService:MensajeService) { }
 
   ngOnInit(): void {
   }
@@ -37,16 +39,15 @@ export class InicioComponent implements OnInit {
         this.imgResul = leer.result as string;
       }
     },'image/jpeg',0.95); 
-    console.log('path'+this.imgResul);
   }
 
   async ejecutarCbir(){
     this.respuesta = await this.cbirService.postImage(this.imgResul).finally();
-    console.log("resp"+this.respuesta.val);
   } 
 
-  abrirmodal(): void {
-   this.ejecutarCbir();
+  abrirmodal(){
+    this.ejecutarCbir();
+    this.menService.respuesta(this.respuesta.mensaje,this.respuesta.val).subscribe((answer)=>{});
   }
 
 }
