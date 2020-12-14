@@ -2,7 +2,11 @@
     <input type="file" accept="images/*" (change)="selectArchivo($event)">
 </section>
 <section *ngIf="imgResul">
-    <button type="button" class="btn btn-primary detectar" (click)="abrirmodal()">Detectar</button>
+    <button type="button" class="btn btn-primary detectar" (click)="ejecutarCbir()">Detectar</button>
+</section>
+<br>
+<section *ngIf="respuesta">
+    <button type="button" class="btn btn-primary detectar" (click)="abrirmodal()">Resultado</button>
 </section>
 <div class="row mt-2">
     <div class="col-4">

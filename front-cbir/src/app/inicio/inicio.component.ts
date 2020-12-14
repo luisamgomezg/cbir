@@ -16,7 +16,8 @@ export class InicioComponent implements OnInit {
   imgResul: string;
   respuesta : respuesta;
 
-  constructor(private cbirService:CbirService, private menService:MensajeService) { }
+  constructor(private cbirService:CbirService, private menService:MensajeService) {
+  }
 
   ngOnInit(): void {
   }
@@ -46,8 +47,7 @@ export class InicioComponent implements OnInit {
   } 
 
   abrirmodal(){
-    this.ejecutarCbir();
-    this.menService.respuesta(this.respuesta.mensaje,this.respuesta.val).subscribe((answer)=>{});
+    this.menService.respuesta(this.respuesta.mensaje,this.respuesta.val).subscribe();
   }
 
 }
